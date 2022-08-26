@@ -28,16 +28,28 @@ const deleteRoomRow = "DELETE FROM room";
 const deleteMessRow = "DELETE FROM messages";
 
 
-function initTable(query) {
-  const sql = "INSERT INTO users (id, name) VALUES ($1, $2)";
-  const result = await db.query(query, [])
+async function initTable(query) {
+
+  const result = db.query(query).then(res => {
+
+    return result.rows;
+  })
 	
 	// result.rows är en array
 	// vill du bara få ut ett resultat
 	// behöver du ta ut första indexet i arrayen (result.rows[0])
-  return result.rows;
+  
 }
 
+/*
+function initTable(query) {
+  return new Promise((resolve, reject) => {
+    db.all(query, (err, rows) => {
+      resolve(rows);
+    });
+  });
+}
+*/
 async function addMessage(message, room, name) {
   const query = `
   ${insertMessage} (message, room, user) 

@@ -13,6 +13,15 @@ const db = new Client({
     "postgres://jhidcakxlhrals:5a7653e8845c2f284b7948",
 });  
 
+/*
+const db = new Client({
+  host: "localhost",
+  user: "postgres",
+  port: 5432,
+  password: "rootUser",
+  database: "chat_db",
+});
+*/
 db.connect();
 
 /////MESSAGES/////////////////////////////////////////
