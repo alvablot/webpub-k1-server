@@ -89,7 +89,7 @@ async function deleteMessages(roomName) {
 }
 
 async function getTheUsers(name) {
-  const query = `fetchTheUser = ${name}`;
+  const query = `${fetchTheUser} = ${name}`;
   const result = await initTable(query);
   return result.rows;
 }
