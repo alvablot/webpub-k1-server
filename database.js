@@ -10,16 +10,9 @@ const db = new Client({
     // https://stackoverflow.com/questions/63863591/is-it-ok-to-be-setting-rejectunauthorized-to-false-in-production-postgresql-conn
   },
   connectionString:
-    process.env.DATABASE_URL,
+    "postgres://jhidcakxlhrals:5a7653e8845c2f284b7948",
 });  
-/*
-const db = new Client({
-  host: "localhost",
-  user: "postgres",
-  port: 5432,
-  password: "rootUser",
-  database: "chat_db",
-});*/
+
 db.connect();
 
 /////MESSAGES/////////////////////////////////////////
@@ -33,7 +26,7 @@ const messStmt = `CREATE TABLE IF NOT EXISTS messages
   )
   `;
 //if (!exists) {
-/*
+
 /////USERS/////////////////////////////////////////
 const usersStmt = `CREATE TABLE IF NOT EXISTS users (
     count SERIAL PRIMARY KEY,
