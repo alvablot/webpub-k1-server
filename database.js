@@ -11,7 +11,7 @@ const db = new Client({
   },
   connectionString:
     "postgres://jhidcakxlhrals:5a7653e8845c2f284b79485a9df4d9e1d3b192f193c08ba845d82aee470061b0@ec2-34-247-72-29.eu-west-1.compute.amazonaws.com:5432/d18o143vlqa2v8",
-});  
+});
 
 /*
 const db = new Client({
@@ -25,16 +25,15 @@ const db = new Client({
 db.connect();
 
 /////MESSAGES/////////////////////////////////////////
-const messStmt = `CREATE TABLE IF NOT EXISTS messages 
-  (
-    id SERIAL PRIMARY KEY,
-    message TEXT,
-    user TEXT,
-    room TEXT,
-    time_stamp DATETIME 
+const messStmt = `CREATE TABLE IF NOT EXISTS messages (
+  id SERIAL PRIMARY KEY,
+  message TEXT,
+  "user" TEXT,
+  room TEXT,
+  time_stamp DATE DEFAULT CURRENT_TIMESTAMP
   )
   `;
-  //DEFAULT CURRENT_TIMESTAMP
+//DEFAULT CURRENT_TIMESTAMP
 //if (!exists) {
 
 /////USERS/////////////////////////////////////////
@@ -92,7 +91,6 @@ db.query(roomStmt, (error) => {
   }
 });
 */
-
 
 /*
 
