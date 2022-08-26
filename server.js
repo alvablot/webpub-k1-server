@@ -5,7 +5,7 @@ const { Server } = require("socket.io");
 const httpServer = createServer();
 const db = require("./database.js");
 const fs = require("fs");
-const port = "";
+const port = process.env.PORT;
 const io = new Server(httpServer, {
   cors: {
     origin: ["http://localhost:8080", "https://admin.socket.io"],
