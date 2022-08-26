@@ -10,7 +10,7 @@ const db = new Client({
     // https://stackoverflow.com/questions/63863591/is-it-ok-to-be-setting-rejectunauthorized-to-false-in-production-postgresql-conn
   },
   connectionString:
-    "postgres://jhidcakxlhrals:5a7653e8845c2f284b7948",
+    "postgres://jhidcakxlhrals:5a7653e8845c2f284b79485a9df4d9e1d3b192f193c08ba845d82aee470061b0@ec2-34-247-72-29.eu-west-1.compute.amazonaws.com:5432/d18o143vlqa2v8",
 });  
 
 /*
