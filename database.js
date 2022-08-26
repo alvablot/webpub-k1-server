@@ -56,7 +56,7 @@ db.query(usersStmt, (error) => {
     throw error;
   }
 });
-/*
+
 async function createX(name) {
   const insertRoom = `INSERT INTO room (name) VALUES ($1)`;
   const result = await db.query(insertRoom, [name]);
@@ -66,6 +66,7 @@ async function createX(name) {
   // behöver du ta ut första indexet i arrayen (result.rows[0])
   return result.rows;
 }
+createX("General");
 /*
 db.query(roomStmt, (error) => {
   if (error) {
@@ -82,7 +83,7 @@ db.query(roomStmt, (error) => {
 });
 */
 
-//createX("General");
+
 /*
 
 

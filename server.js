@@ -13,7 +13,7 @@ const io = new Server(httpServer, {
     credentials: true,
   },
 });
-/*
+
 let count2;
 let users = [];
 const fetchUsers = "SELECT * FROM users";
@@ -26,6 +26,8 @@ const fetchMessage = "SELECT * FROM messages ORDER BY time_stamp, room DESC";
 const deleteRow = "DELETE FROM users";
 const deleteRoomRow = "DELETE FROM room";
 const deleteMessRow = "DELETE FROM messages";
+
+
 function initTable(query) {
   return new Promise((resolve, reject) => {
     db.all(query, (err, rows) => {
@@ -41,46 +43,46 @@ async function addMessage(message, room, name) {
   db.query(query, [message, room, name]);
   const fetchMessage = `SELECT * FROM messages WHERE room = '${room}' ORDER BY time_stamp, room DESC`;
   const result = await initTable(fetchMessage);
-  return result;
+  return result.rows;
 }
 
 async function getMessages(room) {
   const fetchMessage = `SELECT * FROM messages WHERE room = '${room}'`;
   const result = await initTable(fetchMessage);
-  return result;
+  return result.rows;
 }
 
 async function getUsers() {
   const query = fetchUsers;
   const result = await initTable(query);
-  return result;
+  return result.rows;
 }
 
 async function deleteUser(id) {
   db.query(`${deleteRow} WHERE id = $1`, id, (err) => {});
   const result = await initTable(fetchUsers);
   if (result.length < 1) return 404;
-  return result;
+  return result.rows;
 }
 
 async function deleteRoom(roomName) {
   db.query(`${deleteRoomRow} WHERE name = $1`, roomName, (err) => {});
   const result = await initTable(fetchRooms);
   if (result.length < 1) return 404;
-  return result;
+  return result.rows;
 }
 
 async function deleteMessages(roomName) {
   db.query(`${deleteMessRow} WHERE room = $1`, roomName, (err) => {});
   const result = await initTable(fetchRooms);
   if (result.length < 1) return 404;
-  return result;
+  return result.rows;
 }
 
 async function getTheUsers(name) {
   const query = `fetchTheUser = ${name}`;
   const result = await initTable(query);
-  return result;
+  return result.rows;
 }
 
 async function addUser(userId, userName) {
@@ -89,7 +91,7 @@ async function addUser(userId, userName) {
   VALUES($1, $2)`;
   db.query(query, [userId, userName]);
   const result = await initTable(fetchUsers);
-  return result;
+  return result.rows;
 }
 
 async function addRoom(userId, roomName, password) {
@@ -98,13 +100,13 @@ async function addRoom(userId, roomName, password) {
   VALUES($1, $2)`;
   db.query(query, [roomName, password]);
   const result = await initTable(fetchRooms);
-  return result;
+  return result.rows;
 }
 
 async function getRooms() {
   const query = fetchRooms;
   const result = await initTable(query);
-  return result;
+  return result.rows;
 }
 
 io.on("connection", (socket) => {
@@ -235,5 +237,5 @@ io.on("connection", (socket) => {
     });
   });
 });
-*/
+
 io.listen(port);
