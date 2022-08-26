@@ -30,14 +30,9 @@ const deleteMessRow = "DELETE FROM messages";
 
 async function initTable(query) {
 
-  const result = db.query(query).then(res => {
+  const result = await db.query(query)
 
     return result.rows;
-  })
-	
-	// result.rows är en array
-	// vill du bara få ut ett resultat
-	// behöver du ta ut första indexet i arrayen (result.rows[0])
   
 }
 
