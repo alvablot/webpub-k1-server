@@ -8,7 +8,7 @@ const fs = require("fs");
 const port = process.env.PORT;
 const io = new Server(httpServer, {
   cors: {
-    origin: ["http://localhost:8080", "https://admin.socket.io"],
+    origin: ["http://localhost:8080", "https://admin.socket.io", "https://k1-client2.herokuapp.com"],
     allowedHeaders: ["GET", "POST"],
     credentials: true,
   },
