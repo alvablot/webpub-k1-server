@@ -66,22 +66,14 @@ db.query(usersStmt, (error) => {
   }
 });
 
-async function createX(name) {
-  const insertRoom = `INSERT INTO room (name) VALUES ($1)`;
-  const result = await db.query(insertRoom, [name]);
 
-  // result.rows är en array
-  // vill du bara få ut ett resultat
-  // behöver du ta ut första indexet i arrayen (result.rows[0])
-  return result.rows;
-}
-createX("General");
-/*
+
 db.query(roomStmt, (error) => {
   if (error) {
     console.error(error.message);
     throw error;
   } else {
+    const insertRoom = `INSERT INTO room (name) VALUES ("General")`;
     db.query(insertRoom, (error) => {
       if (error) {
         console.error(error.message);
@@ -90,7 +82,7 @@ db.query(roomStmt, (error) => {
     });
   }
 });
-*/
+
 
 /*
 
