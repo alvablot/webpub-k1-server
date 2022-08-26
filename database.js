@@ -31,9 +31,10 @@ const messStmt = `CREATE TABLE IF NOT EXISTS messages
     message TEXT,
     user TEXT,
     room TEXT,
-    time_stamp DATETIME DEFAULT CURRENT_TIMESTAMP
+    time_stamp DATETIME 
   )
   `;
+  //DEFAULT CURRENT_TIMESTAMP
 //if (!exists) {
 
 /////USERS/////////////////////////////////////////
