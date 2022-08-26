@@ -73,8 +73,8 @@ db.query(roomStmt, (error) => {
     console.error(error.message);
     throw error;
   } else {
-    const insertRoom = `INSERT INTO room (name) VALUES ("General")`;
-    db.query(insertRoom, (error) => {
+    const insertRoom = `INSERT INTO room (name) VALUES ($1)`;
+    db.query(insertRoom, ["General"], (error) => {
       if (error) {
         console.error(error.message);
         throw error;
