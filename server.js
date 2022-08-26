@@ -1,9 +1,9 @@
-const { Client } = require("pg");
+//const { Client } = require("pg");
 const timeStamp = require("./utils/timeStamp");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 const httpServer = createServer();
-const db = require("./database.js");
+//const db = require("./database.js");
 const fs = require("fs");
 const port = "";
 const io = new Server(httpServer, {
@@ -13,6 +13,7 @@ const io = new Server(httpServer, {
     credentials: true,
   },
 });
+/*
 let count2;
 let users = [];
 const fetchUsers = "SELECT * FROM users";
@@ -234,5 +235,5 @@ io.on("connection", (socket) => {
     });
   });
 });
-
+*/
 io.listen(port);

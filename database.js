@@ -1,13 +1,8 @@
 const { Client } = require("pg");
 const fs = require("fs");
 //const dbFile = "./data/chat_db.db";
-//const exists = fs.existsSync(dbFile);
-/*const db = new sqlite3.Database(dbFile, (error) => {
-  if (error) {
-    console.error(error.message);
-    throw error;
-  }
-  **/
+//const exists = fs.existsSync(dbFile);/*
+
 const db = new Client({
   ssl: {
     rejectUnauthorized: false,
@@ -15,9 +10,18 @@ const db = new Client({
     // https://stackoverflow.com/questions/63863591/is-it-ok-to-be-setting-rejectunauthorized-to-false-in-production-postgresql-conn
   },
   connectionString:
-    "postgres://fwmqdpixjfhxde:bf594a55557ad3580ga85cb8af44b2e8809a21903268697e61eb602d448da84c@ec2-14-253-119-24.eu-west-1.compute.amazonaws.com:5432/dnqk6u2hrj8d71",
-});
+    process.env.DATABASE_URL,
+});  
+/*
+const db = new Client({
+  host: "localhost",
+  user: "postgres",
+  port: 5432,
+  password: "rootUser",
+  database: "chat_db",
+});*/
 db.connect();
+
 /////MESSAGES/////////////////////////////////////////
 const messStmt = `CREATE TABLE IF NOT EXISTS messages 
   (
@@ -29,7 +33,7 @@ const messStmt = `CREATE TABLE IF NOT EXISTS messages
   )
   `;
 //if (!exists) {
-
+/*
 /////USERS/////////////////////////////////////////
 const usersStmt = `CREATE TABLE IF NOT EXISTS users (
     count SERIAL PRIMARY KEY,
@@ -59,7 +63,7 @@ db.query(usersStmt, (error) => {
     throw error;
   }
 });
-
+/*
 async function createX(name) {
   const insertRoom = `INSERT INTO room (name) VALUES ($1)`;
   const result = await db.query(insertRoom, [name]);
@@ -85,7 +89,7 @@ db.query(roomStmt, (error) => {
 });
 */
 
-createX("General");
+//createX("General");
 /*
 
 
