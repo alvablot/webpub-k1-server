@@ -28,9 +28,9 @@ db.connect();
 const messStmt = `CREATE TABLE IF NOT EXISTS messages 
   (
     id SERIAL PRIMARY KEY,
-    message VARCHAR (255),
-    user VARCHAR (255),
-    room VARCHAR (255),
+    message TEXT,
+    user TEXT,
+    room TEXT,
     time_stamp DATETIME DEFAULT CURRENT_TIMESTAMP
   )
   `;
@@ -39,17 +39,17 @@ const messStmt = `CREATE TABLE IF NOT EXISTS messages
 /////USERS/////////////////////////////////////////
 const usersStmt = `CREATE TABLE IF NOT EXISTS users (
     count SERIAL PRIMARY KEY,
-    id VARCHAR (255),
-    name VARCHAR (255),
-    room VARCHAR (255)
+    id TEXT,
+    name TEXT,
+    room TEXT
   )
   `;
 
 /////ROOMS/////////////////////////////////////////
 const roomStmt = `CREATE TABLE IF NOT EXISTS room (
     id SERIAL PRIMARY KEY,
-    name VARCHAR (255),
-    password CHAR (60) DEFAULT NULL
+    name TEXT,
+    password TEXT DEFAULT NULL
   )
   `;
 
